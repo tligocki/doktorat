@@ -1,0 +1,9 @@
+numpy
+scipy
+pandas
+matplotlib
+mpmath
+opencv-python-headless
+scikit-image
+# GPU (opcjonalnie, tylko z kartą NVIDIA i sterownikiem obsługującym CUDA 13):
+# cupy-cuda13x
