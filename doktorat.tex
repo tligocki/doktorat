@@ -1012,6 +1012,20 @@ img_torus[0:delta, delta:delta + W] = img_bez_paskow[H - delta:H, :]
 \end{lstlisting}
 Cztery analogiczne instrukcje wypełniają rogi (np.\ \texttt{img\_torus[0:delta, 0:delta] = img\_bez\_paskow[H - delta:H, W - delta:W]}). Powstaje obraz $686\times688$ px, w którym klatka jest otoczona sąsiedztwem przeciwległych brzegów, czyli widziana tak, jak w strukturze okresowej (rozdz.~\ref{sec:def}, p.~\ref{ssec:lattice}). Dzięki temu bakterie leżące przy brzegu klatki są wykrywane z pełnym otoczeniem, a nie z brzegiem sztucznie uciętym.
 
+Efekt działania tego kodu pokazuje Rys.~\ref{fig:klatka-torus} dla klatki $i=1$. Program zapisuje kolejne etapy przygotowania klatki do dalszej obróbki jako pliki \texttt{klatka\_\{i:03d\}.png} (klatka wczytana z filmu), \texttt{klatka\_\{i:03d\}-bez\_paskow.png} (po odcięciu pasków) i \texttt{klatka\_\{i:03d\}-torus.png} (po doklejeniu ramek); dla $i=1$ są to \texttt{klatka\_001.png}, \texttt{klatka\_001-bez\_paskow.png} i \texttt{klatka\_001-torus.png}.
+
+\begin{figure}[htbp]
+\centering
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{ccc}
+\raisebox{-\height}{\includegraphics[width=0.311\textwidth]{figs/klatka_001.png}} &
+\raisebox{-\height}{\includegraphics[width=0.311\textwidth]{figs/klatka_001-bez_paskow.png}} &
+\raisebox{-\height}{\includegraphics[width=0.335\textwidth]{figs/klatka_001-torus.png}}\\[2pt]
+(a) & (b) & (c)
+\end{tabular}
+\caption{Przygotowanie klatki do detekcji bakterii (klatka $i=1$, wspólna skala; wymiary podano jako szerokość $\times$ wysokość w pikselach). (a) Klatka wczytana z filmu, \texttt{klatka\_001.png}, $640\times652$ px; u góry i u dołu widoczne są czarne paski. (b) Klatka po odcięciu pasków (6 px z góry i 8 px z dołu), \texttt{klatka\_001-bez\_paskow.png}, $640\times638$ px. (c) Klatka torusowa, \texttt{klatka\_001-torus.png}, $688\times686$ px: ze wszystkich stron i w narożnikach dołączono pasy o szerokości $\delta=24$ px skopiowane z przeciwległych krawędzi klatki (b); w (c) widać je jako delikatne ramki wzdłuż brzegów. Na obrazie (c) wykonuje się detekcję bakterii.}\label{fig:klatka-torus}
+\end{figure}
+
 \section{Detekcja: binaryzacja Otsu oraz metody LoG i DoG}
 Detekcja odbywa się \emph{jeden raz} na całym torusie (wyniki są zapamiętywane w pamięci podręcznej \texttt{\_blobs\_cache}), a nie osobno w każdym oknie. Obraz jest najpierw binaryzowany progiem Otsu i oczyszczany otwarciem morfologicznym (Listing~\ref{lst:kod-otsu}):
 \begin{lstlisting}[style=pykod,caption={Binaryzacja progiem Otsu i otwarcie morfologiczne},label={lst:kod-otsu}]
@@ -1076,6 +1090,30 @@ blobs_sum2[:, 0] = blobs_roi[:, 0] / y_d
 blobs_sum2[:, 1] = blobs_roi[:, 1] / x_d
 a = cp.asarray(array[:, 1] + 1j * array[:, 0], dtype=cp.complex128)
 \end{lstlisting}
+Program zapisuje dla każdego okna (dla klatki o numerze \texttt{SAVE\_PNG\_FOR\_I}$=1$) obraz z naniesionymi środkami bakterii; środki rysuje się jako czerwone punkty na fragmencie klatki bez pasków (Listing~\ref{lst:kod-png}):
+\begin{lstlisting}[style=pykod,caption={Zapis okna z naniesionymi środkami bakterii (\texttt{\_zapisz\_png})},label={lst:kod-png}]
+N = len(blobs_roi)
+fname = PATH_PNG + f'{png_prefix}_i{i}_nr{nr}_mr{mr}_{N}.png'
+ax.imshow(image, cmap='gray', origin='upper', interpolation='nearest')
+ax.scatter(blobs_ok[:, 1], blobs_ok[:, 0], s=8, c='red', marker='o', linewidths=0)
+\end{lstlisting}
+Nazwa pliku ma postać \texttt{real\_i\{i\}\_nr\{nr\}\_mr\{mr\}\_\{N\}.png}: $i$ jest numerem klatki, $nr$ i $mr$ numerami okna w pionie i w poziomie (okno ma lewy górny narożnik $y_0=10\,nr$, $x_0=11\,mr$ px, bo kroki siatki $50\times50$ położeń wynoszą $10$ i $11$ px), a $N$ liczbą wykrytych środków. Rys.~\ref{fig:okna-4x4} pokazuje 16 takich okien dla klatki $i=1$, np.\ \texttt{real\_i1\_nr11\_mr31\_40.png}.
+
+\newcommand{\okno}[3]{\begin{tabular}[t]{@{}c@{}}\includegraphics[width=0.19\textwidth]{figs/real_i1_nr#1_mr#2_#3.png}\\[-1pt]{\scriptsize $N=#3$}\end{tabular}}
+\begin{figure}[htbp]
+\centering
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{c cccc}
+ & $mr=31$ & $mr=32$ & $mr=33$ & $mr=34$\\
+ & {\scriptsize $x_0=341$} & {\scriptsize $x_0=352$} & {\scriptsize $x_0=363$} & {\scriptsize $x_0=374$}\\[3pt]
+\shortstack{$nr=11$\\{\scriptsize $y_0=110$}} & \okno{11}{31}{40} & \okno{11}{32}{39} & \okno{11}{33}{37} & \okno{11}{34}{39}\\[3pt]
+\shortstack{$nr=21$\\{\scriptsize $y_0=210$}} & \okno{21}{31}{39} & \okno{21}{32}{37} & \okno{21}{33}{41} & \okno{21}{34}{40}\\[3pt]
+\shortstack{$nr=31$\\{\scriptsize $y_0=310$}} & \okno{31}{31}{43} & \okno{31}{32}{44} & \okno{31}{33}{44} & \okno{31}{34}{45}\\[3pt]
+\shortstack{$nr=41$\\{\scriptsize $y_0=410$}} & \okno{41}{31}{40} & \okno{41}{32}{39} & \okno{41}{33}{37} & \okno{41}{34}{37}\\[3pt]
+\end{tabular}
+\caption{Środki bakterii znalezione w oknach pływających klatki $i=1$ (tabela $4\times4$ okien o rozmiarze $100\times100$ px, wyniki działania kodu detekcji i czyszczenia z Listingów~\ref{lst:kod-logdog}--\ref{lst:kod-dup}). Każdy obraz to fragment klatki bez pasków w skali szarości (zapis \texttt{real\_i1\_nr\{nr\}\_mr\{mr\}\_\{N\}.png}), a czerwone punkty to środki bakterii po scaleniu bliskich punktów i usunięciu duplikatów torusowych; pod obrazem podano liczbę środków $N$. Wiersze odpowiadają numerom okien w pionie $nr=11,21,31,41$ (okna sąsiadują ze sobą bez nakładania, bo krok pionowy wynosi $10$ px), kolumny numerom w poziomie $mr=31,\dots,34$ (kolejne okna są przesunięte o $11$ px, więc w wierszu każde okno pokrywa się z sąsiednim w $89\%$). Stąd obrazy w jednym wierszu są do siebie podobne, a liczba $N$ zmienia się nieznacznie ($37$--$40$ w wierszu $nr=11$ i $43$--$45$ w wierszu $nr=31$).}\label{fig:okna-4x4}
+\end{figure}
+
 Gdy w oknie jest więcej niż \texttt{MAX\_PUNKTOW\_E2}$=500$ punktów, losuje się podzbiór (to ograniczenie nie jest w praktyce osiągane, bo okna zawierają ok.\ $25$--$50$ bakterii). Dla każdego okna zapisuje się wiersz: numer klatki, położenie okna $(y_0,x_0)$, $N$, $f$, sumy strukturalne, $\Re A^{(3)}$ i lepkość; tak powstają pliki \texttt{result\_lepkosc\_all.csv} (statystyki klatek) i tabele okien, na których opiera się rozdz.~\ref{sec:realstat}.
 
 \oran{Poprawną kolejność potwierdza zgodność z Mathematicą (\texttt{Import-e2-CORRECTED.nb}): dla $182$ punktów $e_2=3{,}32561+0{,}12054\,i$ i $e_{2,2}=15{,}2837$.}
