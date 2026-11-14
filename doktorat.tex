@@ -779,7 +779,155 @@ gdzie współczynniki $A^{(s)}$ są kombinacjami liniowymi sum strukturalnych. R
 A^{(1)}&=\varrho_3,\qquad A^{(2)}=-\frac2\pi\varrho_3^2\,e_3^{(1)(1)}=0,\label{eq:A12}\\
 A^{(3)}&=\frac{\varrho_3}{\pi^2}\Bigl[4\varrho_3^2e_{33}^{(11)(10)}+6\varrho_3e_4^{(0)(1)}+\frac{\varrho_1-\varrho_3}{1+\varrho_1}\bigl(e_{22}^{(00)(10)}-e_{22}^{(00)(11)}\bigr)\Bigr],\label{eq:A3}
 \end{align}
-przy czym $A^{(2)}=0$ wynika z izotropii. Współczynnik $A^{(4)}$ zawiera sumy z $p\le3$ (wzór (41) w \cite{czapla2025computational}), a kolejne, $A^{(5)}$, $A^{(6)}$, są coraz bardziej złożone. Ze sprawdzenia wzorów (34)--(43) z \cite{czapla2025computational} wynika prawidłowość: \emph{współczynnik rzędu $s$, $A^{(s)}$, zawiera wyłącznie sumy strukturalne o wadze $\alpha=2(s-1)$ i czynnik $\pi^{-(s-1)}$}. Np. $A^{(2)}$ zawiera $e_3^{(1)(1)}$ ($\alpha=2$), $A^{(3)}$ --- sumy o $\alpha=4$, $A^{(4)}$ --- sumy o $\alpha=6$ (zob.~tabela w p.~\ref{ssec:struct}).
+przy czym $A^{(2)}=0$ wynika z izotropii. Ze sprawdzenia wzorów (34)--(43) z \cite{czapla2025computational} wynika prawidłowość: \emph{współczynnik rzędu $s$, $A^{(s)}$, zawiera wyłącznie sumy strukturalne o wadze $\alpha=2(s-1)$ i czynnik $\pi^{-(s-1)}$}. Np. $A^{(2)}$ zawiera $e_3^{(1)(1)}$ ($\alpha=2$), $A^{(3)}$ --- sumy o $\alpha=4$, $A^{(4)}$ --- sumy o $\alpha=6$ (zob.~tabela w p.~\ref{ssec:struct}).
+
+Kolejne współczynniki, $A^{(4)}$, $A^{(5)}$ i $A^{(6)}$, mają postać (wzory (41)--(43) w \cite{czapla2025computational}; przytoczono je za źródłem, z oznaczeniami sum strukturalnych jak w Def.~\ref{def:struct}; wzory te nie były niezależnie weryfikowane, a w \cite{czapla2025computational} stwierdzono błędy, por.\ dodatek~\ref{app:notes}):
+\begin{multline}\label{eq:A4}
+A^{(4)} =
+\frac{1}{ \pi^3}  \left[
+-2\varrho_1\varrho_2\varrho_3 e_{3,3}^{(0,0)(1,0)}
+-12\varrho_3^3 e_{4,3}^{(0,1)(1,0)}-12\varrho_3^3 e_{3,4}^{(1,0)(1,0)}
+\right. \\ \left.
+-18\varrho_3^3  e_{4,4}^{(1,1)(1,0)} -8\varrho_3^4  e_{3,3,3}^{(1,1,1)(1,0,1)}
+\right. \\ \left.
+-2\varrho_3^2\frac{\varrho_3-\varrho_1}{1+\varrho_1} \left(e_{2,2,3}^{(0,0,1)(0,0,1)}
++ e_{2,2,3}^{(0,0,1)(1,1,0)}
++2 e_{2,2,3}^{(0,0,1)(1,0,1)}
+\right)
+\right],
+\end{multline}
+\begin{multline}\label{eq:A5}
+A^{(5)} = \frac{1}{ \pi^4} \left[
+3\varrho_3(\varrho_1\varrho_2+12\varrho_3^2)e_{4,4}^{(0,0)(1,0)}
+\right.
++24\varrho_3^3\left(5\mathrm{Re} \left(e_{5,4}^{(0,1)(1,0)}\right)
++2e_{5,5}^{(1,1)(1,0)}\right)
+\\
++8\varrho_{1}\varrho_2\varrho_3^2
+e_{3,3,3}^{(0,0,1)(1,0,1)} +16\varrho_3^5e_{3,3,3,3}^{(1,1,1,1)(1,0,1,0)}
+\\
++24\varrho_3^4
+\left(2e_{4,3,3}^{(0,1,1)(1,0,1)}
++e_{3,4,3}^{(1,0,1)(1,0,1)}
++3e_{4,4,3}^{(1,1,1)(1,0,1)}
+\right)
+\\
++12\varrho_3^2\frac{\varrho_1-\varrho_3}{1+\varrho_1}
+\left( e_{2,2,4}^{(0,0,0)(1,0,1)}
++ e_{2,3,4}^{(0,0,1)(1,0,1)}
+-\mathrm{Re}\left(e_{2,2,4}^{(0,0,0)(1,1,0)}
++e_{2,3,4}^{(0,0,1)(1,1,0)}\right)
+\right)
+\\
++\varrho_3\left(\frac{\varrho_1-\varrho_3}{1+\varrho_1}\right)^2 \left(
+e_{2,2,2,2}^{(0,0,0,0)(1,0,1,0)}
+-2e_{2,2,2,2}^{(0,0,0,0)(1,0,1,1)}
++e_{2,2,2,2}^{(0,0,0,0)(1,1,0,0)}
+\right)
+\\
++4\varrho_3^3\frac{\varrho_1-\varrho_3}{1+\varrho_1}
+\left(2 \mathrm{Re}\left( e_{2,2,3,3}^{(0,0,1,1)(1,0,1,0)}\right)
+-2e_{2,2,3,3}^{(0,0,1,1)(1,1,0,1)}
+\right. \\\left. \left.
+-e_{3,2,2,3}^{(1,0,0,1)(1,0,0,1)}
++e_{3,2,2,3}^{(1,0,0,1)(1,0,1,0)}
+\right) \right]
+\end{multline}
+\begin{multline}\label{eq:A6}
+A^{(6)} =
+\frac{1}{ \pi^5}  \left[
+-4\varrho_3(\varrho_1\varrho_2+50\varrho_3^2) e_{5,5}^{(0,0)(1,0)}
+- \varrho_3^3 \left(360\mathrm{Re}\left(e_{6,5}^{(0,1)(1,0)}\right)
++e_{6,6}^{(1,1)(1,0)}\right)
+\right. \\
++\varrho_3^2\frac{\varrho_1-\varrho_3}{1+\varrho_1}\left(
+-40 e_{2,3,5}^{(0,0,0)(1,0,1)}
++40\mathrm{Re} \left(e_{2,3,5}^{(0,0,0)(1,1,0)}\right)
+\right. \\ \left.
+-24 e_{2,4,5}^{(0,0,1)(1,0,1)}
++ 24\mathrm{Re}\left(e_{2,4,5}^{(0,0,1)(1,1,0)}\right)
+\right)
+\\
++\varrho_1\varrho_2\varrho_3^2\left(
+-24e_{3,3,4}^{(0,0,0)(1,0,1)}
+-36e_{3,4,4}^{(0,0,1)(1,0,1)}
+\right)
+\\
++12\varrho_3^2(\varrho_1\varrho_2+12\varrho_3^2)
+e_{4,4,3}^{(0,0,1)(1,0,1)}
+\\
++\varrho_3^4\left(-72 e_{4,3,4}^{(0,1,0)(1,0,1)}
+-  216 e_{4,4,4}^{(0,1,1)(1,0,1)}
+-240 e_{5,4,3}^{(0,1,1)(1,0,1)}\right. \\ \left.
+-240 e_{3,5,4}^{(1,0,1)(1,0,1)}
+-192 e_{3,5,5}^{(1,1,1)(1,0,1)}
+- 216 e_{4,5,4}^{(1,1,1)(1,0,1)}
+\right)
+\\
+-4\varrho_1\varrho_2\varrho_3\frac{\varrho_1-\varrho_3}{1+\varrho_1}
+\left(\mathrm{Re}\left( e_{2,2,3,3}^{(0,0,0,0)(1,0,1,0)}\right) -e_{2,2,3,3}^{(0,0,0,0)(1,1,0,1)}
+\right)
+\\
++12\varrho_3^3\frac{\varrho_1-\varrho_3}{1+\varrho_1}\left(
+\mathrm{Re}\left( -2e_{2,2,4,3}^{(0,0,0,1)(1,0,1,0)}
+-2 e_{2,2,3,4}^{(0,0,1,0)(1,0,1,0)}
+-3 e_{2,2,4,4}^{(0,0,1,1)(1,0,1,0)}
+\right.\right.\\ \left.
+ -2e_{2,3,4,3}^{(0,0,1,1)(1,0,1,0)}
+-2e_{4,2,2,3}^{(0,0,0,1)(1,0,1,0)}
+-2e_{3,2,3,4}^{(1,0,0,1)(1,0,1,0)}\right)
+ \\ 	\left.
++2 e_{2,2,4,3}^{(0,0,0,1)(1,1,0,1)}
++2 e_{2,2,3,4}^{(0,0,1,0)(1,1,0,1)}
++3e_{2,2,4,4}^{(0,0,1,1)(1,1,0,1)} \right. \\ \left.
++2 e_{2,3,4,3}^{(0,0,1,1)(1,1,0,1)}
++2e_{4,2,2,3}^{(0,0,0,1)(1,0,0,1)}
++2e_{3,2,3,4}^{(1,0,0,1)(1,0,0,1)}
+\right)
+\\
+-2\varrho_3\left(\frac{\varrho_1-\varrho_3}{1+\varrho_1}\right)^2
+\left(
+e_{2,3,3,2}^{(0,0,0,0)(1,0,1,0)}
++e_{2,3,3,2}^{(0,0,0,0)(1,1,0,0)}
+-e_{2,3,3,2}^{(0,0,0,0)(1,1,0,1)}
+\right)
+\\
+-8\varrho_1\varrho_2\varrho_3^3\left(
+2\mathrm{Re}\left(e_{3,3,3,3}^{(0,0,1,1)(1,0,1,0)}\right)
++e_{3,3,3,3}^{(1,0,0,1)(1,0,1,0)}
+\right)
+\\
+-24\varrho_3^5\left(
+4e_{4,3,3,3}^{(0,1,1,1)(1,0,1,0)}
++3e_{3,4,4,3}^{(1,1,1,1)(1,0,1,0)}
++\mathrm{Re}\left(4e_{3,4,3,3}^{(1,0,1,1)(1,0,1,0)}
++6e_{3,3,4,4}^{(1,1,1,1)(1,0,1,0)}\right)
+\right)
+\\
++2\varrho_3^2\left(\frac{\varrho_1-\varrho_3}{1+\varrho_1}\right)^2
+\left(
+2\mathrm{Re}\left(e_{2,2,2,2,3}^{(0,0,0,0,1)(1,0,1,1,0)}
++e_{2,2,3,2,2}^{(0,0,1,0,0)(1,0,1,0,0)}
++e_{2,2,2,2,3}^{(0,0,0,0,1)(1,1,0,1,0)}\right)
+\right. \\
+ 	\left.
+-2e_{2,2,2,2,3}^{(0,0,0,0,1)(1,0,1,0,1)}
+-e_{2,2,3,2,2}^{(0,0,1,0,0)(1,0,1,0,1)}
+-e_{2,2,3,2,2}^{(0,0,1,0,0)(1,1,0,1,1)}
+-e_{3,2,2,2,2}^{(1,0,0,0,0)(1,0,0,1,1)}
+\right)
+\\
++16\varrho_3^4\frac{\varrho_1-\varrho_3}{1+\varrho_1}
+\left(
+\mathrm{Re}\left(e_{2,2,3,3,3}^{(0,0,1,1,1)(1,1,0,1,0)}
++e_{3,2,2,3,3}^{(1,0,0,1,1)(1,0,0,1,0)}\right)
+\right. \\ 	\left.
+-e_{3,2,2,3,3}^{(1,0,0,1,1)(1,0,1,0,1)}
+-e_{3,3,3,2,2}^{(1,1,1,0,0)(1,0,1,0,1)}
+\right)
+\left.-32\varrho_3^6
+e_{3,3,3,3,3}^{(1,1,1,1,1)(1,0,1,0,1)}\right]\,.
+\end{multline}
 
 Rozwinięcie \eqref{eq:mue31} względem $f$ ma postać $\mu_e/\mu=1+c_1f+c_2f^2+c_3f^3+c_4f^4+\mathcal O(f^5)$. Podstawiając $u=\sum A^{(s)}f^s$ i rozwijając $(1+u)/(1-\kappa u)=1+(1+\kappa)u/(1-\kappa u)$, przy $A^{(2)}=0$ otrzymujemy
 \begin{equation}\label{eq:cs}
@@ -1012,22 +1160,23 @@ img_torus[0:delta, delta:delta + W] = img_bez_paskow[H - delta:H, :]
 \end{lstlisting}
 Cztery analogiczne instrukcje wypełniają rogi (np.\ \texttt{img\_torus[0:delta, 0:delta] = img\_bez\_paskow[H - delta:H, W - delta:W]}). Powstaje obraz $686\times688$ px, w którym klatka jest otoczona sąsiedztwem przeciwległych brzegów, czyli widziana tak, jak w strukturze okresowej (rozdz.~\ref{sec:def}, p.~\ref{ssec:lattice}). Dzięki temu bakterie leżące przy brzegu klatki są wykrywane z pełnym otoczeniem, a nie z brzegiem sztucznie uciętym.
 
-Efekt działania tego kodu pokazuje Rys.~\ref{fig:klatka-torus} dla klatki $i=1$. Program zapisuje kolejne etapy przygotowania klatki do dalszej obróbki jako pliki \texttt{klatka\_\{i:03d\}.png} (klatka wczytana z filmu), \texttt{klatka\_\{i:03d\}-bez\_paskow.png} (po odcięciu pasków) i \texttt{klatka\_\{i:03d\}-torus.png} (po doklejeniu ramek); dla $i=1$ są to \texttt{klatka\_001.png}, \texttt{klatka\_001-bez\_paskow.png} i \texttt{klatka\_001-torus.png}.
+Efekt działania tego kodu pokazuje Rys.~\ref{fig:klatka-torus} dla klatki $i=1$. Program zapisuje kolejne etapy przygotowania klatki do dalszej obróbki jako pliki \texttt{klatka\_\{i:03d\}.png} (klatka wczytana z filmu), \texttt{klatka\_\{i:03d\}-bez\_paskow.png} (po odcięciu pasków), \texttt{klatka\_\{i:03d\}-torus.png} (po doklejeniu ramek) oraz \texttt{debug\_bw\_i\{i\}\_torus.png} (obraz czarno-biały, na którym algorytm wykrywa bakterie, po binaryzacji progiem Otsu i otwarciu morfologicznym, por.\ Listing~\ref{lst:kod-otsu}); dla $i=1$ są to \texttt{klatka\_001.png}, \texttt{klatka\_001-bez\_paskow.png}, \texttt{klatka\_001-torus.png} i \texttt{debug\_bw\_i1\_torus.png}. Czwarty plik ma te same wymiary co klatka torusowa; bakterie są na nim białe, a tło czarne.
 
 \begin{figure}[htbp]
 \centering
 \setlength{\tabcolsep}{2pt}
-\begin{tabular}{ccc}
-\raisebox{-\height}{\includegraphics[width=0.311\textwidth]{figs/klatka_001.png}} &
-\raisebox{-\height}{\includegraphics[width=0.311\textwidth]{figs/klatka_001-bez_paskow.png}} &
-\raisebox{-\height}{\includegraphics[width=0.335\textwidth]{figs/klatka_001-torus.png}}\\[2pt]
-(a) & (b) & (c)
+\begin{tabular}{cccc}
+\raisebox{-\height}{\includegraphics[width=0.2265\textwidth]{figs/klatka_001.png}} &
+\raisebox{-\height}{\includegraphics[width=0.2265\textwidth]{figs/klatka_001-bez_paskow.png}} &
+\raisebox{-\height}{\includegraphics[width=0.2435\textwidth]{figs/klatka_001-torus.png}} &
+\raisebox{-\height}{\includegraphics[width=0.2435\textwidth]{figs/debug_bw_i1_torus.png}}\\[2pt]
+(a) & (b) & (c) & (d)
 \end{tabular}
-\caption{Przygotowanie klatki do detekcji bakterii (klatka $i=1$, wspólna skala; wymiary podano jako szerokość $\times$ wysokość w pikselach). (a) Klatka wczytana z filmu, \texttt{klatka\_001.png}, $640\times652$ px; u góry i u dołu widoczne są czarne paski. (b) Klatka po odcięciu pasków (6 px z góry i 8 px z dołu), \texttt{klatka\_001-bez\_paskow.png}, $640\times638$ px. (c) Klatka torusowa, \texttt{klatka\_001-torus.png}, $688\times686$ px: ze wszystkich stron i w narożnikach dołączono pasy o szerokości $\delta=24$ px skopiowane z przeciwległych krawędzi klatki (b); w (c) widać je jako delikatne ramki wzdłuż brzegów. Na obrazie (c) wykonuje się detekcję bakterii.}\label{fig:klatka-torus}
+\caption{Przygotowanie klatki do detekcji bakterii (klatka $i=1$, wspólna skala; wymiary podano jako szerokość $\times$ wysokość w pikselach). (a) Klatka wczytana z filmu, \texttt{klatka\_001.png}, $640\times652$ px; u góry i u dołu widoczne są czarne paski. (b) Klatka po odcięciu pasków (6 px z góry i 8 px z dołu), \texttt{klatka\_001-bez\_paskow.png}, $640\times638$ px. (c) Klatka torusowa, \texttt{klatka\_001-torus.png}, $688\times686$ px: ze wszystkich stron i w narożnikach dołączono pasy o szerokości $\delta=24$ px skopiowane z przeciwległych krawędzi klatki (b); w (c) widać je jako delikatne ramki wzdłuż brzegów. (d) Obraz czarno-biały, \texttt{debug\_bw\_i1\_torus.png}, $688\times686$ px: wynik binaryzacji klatki torusowej (c) progiem Otsu z odwróceniem (ciemne bakterie stają się białe, jasne tło czarne) i otwarcia morfologicznego elementem krzyżowym $3\times3$ (Listing~\ref{lst:kod-otsu}). To na obrazie (d) algorytm wykrywa środki bakterii metodami LoG i DoG.}\label{fig:klatka-torus}
 \end{figure}
 
 \section{Detekcja: binaryzacja Otsu oraz metody LoG i DoG}
-Detekcja odbywa się \emph{jeden raz} na całym torusie (wyniki są zapamiętywane w pamięci podręcznej \texttt{\_blobs\_cache}), a nie osobno w każdym oknie. Obraz jest najpierw binaryzowany progiem Otsu i oczyszczany otwarciem morfologicznym (Listing~\ref{lst:kod-otsu}):
+Detekcja odbywa się \emph{jeden raz} na całym torusie (wyniki są zapamiętywane w pamięci podręcznej \texttt{\_blobs\_cache}), a nie osobno w każdym oknie. Obraz jest najpierw binaryzowany progiem Otsu i oczyszczany otwarciem morfologicznym (Listing~\ref{lst:kod-otsu}); jej wynik dla klatki $i=1$ pokazuje Rys.~\ref{fig:klatka-torus}d:
 \begin{lstlisting}[style=pykod,caption={Binaryzacja progiem Otsu i otwarcie morfologiczne},label={lst:kod-otsu}]
 thresh_val, thresh = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
 kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3))
@@ -1485,6 +1634,7 @@ Przy opracowaniu zauważono następujące niespójności; w tekście przyjęto w
 \item \textbf{Próg perkolacji.} W \cite{czapla2025computational} zapisano $f_c=\sqrt\pi/12$; poprawnie $f_c=\pi/(2\sqrt3)\approx0{,}9069$.
 \item \textbf{Etykiety wielomianów.} W \cite{czapla2025computational} zdanie przypisujące równania (73)--(76) do protokołu P, a (77)--(80) do T, jest zamienione względem oznaczeń równań ($\mu_T$, $\mu_P$); wielomiany $\mu^P_{e,4}$ i $\mu^T_{e,4}$ o podanych współczynnikach odpowiadają poprawnie ich nazwom (sprawdzono średnimi z tabeli~\ref{tab:coef}).
 \item \textbf{Odwołanie do części III.} W \cite{czapla2025computational} obliczenie $k_e$ odroczono do „Part III”, która okazała się poświęcona uczeniu maszynowemu.
+\item \textbf{Błędy we wzorach (39) i (40) w \cite{czapla2025computational}.} Na podstawie potwierdzenia promotora (współautora tej pracy) w artykule występują błędy, w tym: (a) we wzorze (39) przed sumą $\frac1{N^3}\sum_k\bigl|\sum_m E_3^{(1)}(a_k-a_m)\bigr|^2$ stoi niepoprawny znak minus; poprawnie $e_{3,3}^{(11)(10)}=\frac1{N^3}\sum_{k_0,k_1,k_2}\overline{E_3^{(1)}(a_{k_0}-a_{k_1})}E_3^{(1)}(a_{k_1}-a_{k_2})=\frac1{N^3}\sum_k\bigl|\sum_m E_3^{(1)}(a_k-a_m)\bigr|^2\ge0$; (b) we wzorze (40) zapisano $e_4^{(0)(1)}\equiv\overline{e_4}$, a w rozprawie, zgodnie z Definicją~\ref{def:struct} i z kodem, przyjęto $e_4:=e_4^{(0)(1)}=\frac1{N^3}\sum\overline{E_4(a_{k_0}-a_{k_1})}$. W rozprawie użyto wersji poprawnych. Wzory (41)--(43) na $A^{(4)}$, $A^{(5)}$, $A^{(6)}$ przytoczono za artykułem bez niezależnej weryfikacji, więc mogą zawierać podobne usterki; wymagają potwierdzenia przez promotora.
 \item \textbf{Źródło pliku Movie S1.avi.} Artykuł ECMS \cite{ligocki2025study} wskazuje jako źródło filmu pracę \cite{ariel2018collective}, której abstrakt dotyczy bakterii \emph{Serratia marcescens}, natomiast projekt badawczy wskazuje na pracę \cite{ryan2013kinetic} i bakterie \emph{Bacillus subtilis}. W rozprawie przyjęto źródło z projektu badawczego; wymaga to potwierdzenia w opisie filmu.
 
 \item\label{it:weryf} \czer{\textbf{Zgodność wzorów na sumy strukturalne z kodem v16 (do wyjaśnienia z promotorem).} Wzory z p.~\ref{ssec:struct} i rozdz.~\ref{sec:kod} porównano z notebookiem v16 (komórki~3d i~8). Sumy policzono wprost z definicji (potrójne sumy po indeksach) dla okien $C$ i $D$ i porównano z wynikami kodu.
